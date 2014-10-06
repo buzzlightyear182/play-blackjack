@@ -1,0 +1,26 @@
+h1, h2, button {
+  text-align: center;
+}
+
+header {
+  margin: 10px 0;
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  max-width: 90%;
+  margin: auto;
+}
+
+section {
+  width: 45%;
+  border: 1px solid black;
+  display: inline-block;
+}
+
+button.hide {
+  display: none;
+}
