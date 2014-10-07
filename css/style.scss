@@ -1,26 +1,91 @@
+$green: #1E824C;
+$red: #D91E18;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+body {
+  background-color: $green;
+  color: white;
+}
+
 h1, h2, button {
   text-align: center;
+}
+
+button {
+  background-color: $red;
+  border: 0px;
+  padding: 20px 50px;
+  font-size: 2em;
+  @include border-radius(10px);
+}
+
+button:hover{
+  background-color: darken($red, 10%);
 }
 
 header {
   margin: 10px 0;
 }
 
-li {
-  list-style: none;
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: darken($green, 50%);
+  margin: 0px;
+  padding: 20px;
+  text-align: center;
 }
 
 .container {
-  max-width: 90%;
+  max-width: 95%;
   margin: auto;
+}
+
+.main {
+  margin: auto;
+  text-align: center;
 }
 
 section {
   width: 45%;
   border: 1px solid black;
   display: inline-block;
+  border: 5px solid yellow;
+  @include border-radius(100px);
 }
 
-button.hide {
+.hide {
   display: none;
+}
+
+ul {
+  text-align:center;
+  padding: 0px;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  margin: 5px;
+  background-color: white;
+  width: 15%;
+  height: auto;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 3em;
+  padding: 30px 0;
+  @include border-radius(10px);
+}
+
+#dealer li:after {
+  display: hidden;
 }

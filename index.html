@@ -9,22 +9,27 @@
 <body>
   <div class="container">
     <header>
-      <h1>Blackjack</h1>
-      <button id="start">Start</button>
-      <button id="hit" class="hide">Hit</button>
-      <button id="end" class="hide">End</button>
+      <h1>Let's Play Blackjack</h1>
     </header>
-    <section id='computer'>
-      <h2>Computer</h2>
+  <div class="main">
+    <section id='dealer'>
+      <h2>Dealer</h2>
       <ul>
       </ul>
+      <p class='score hide'>Score</p>
     </section>
     <section id='player'>
       <h2>Player</h2>
       <ul>
       </ul>
+      <p class='score hide'>Score</p>
     </section>
+  </div>
     <footer>
+      <button id="start">Start</button>
+      <button id="hit" class="hide">Hit</button>
+      <button id="end" class="hide">End</button>
+      <button id="reset" class="hide">Reset</button>
     </footer>
   </div>
   <script src="js/blackjack.js"></script>

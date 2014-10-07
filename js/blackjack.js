@@ -16,88 +16,116 @@ scoreHand(["5", "4", "3", "2", "A", "K"]); //=> 25
 var completeNum = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
 var shapes = ["c","h","s","d"];
 
-var computer = {};
+var dealer = {};
 var player = {};
 
 var start = document.getElementById('start');
 var hit = document.getElementById('hit');
 var end = document.getElementById('end');
+var reset = document.getElementById('reset');
+
+var playerSection = document.getElementById('player');
+var dealerSection = document.getElementById('dealer');
+
 
 start.addEventListener('click',function(event){
+  var playerName = prompt("What is your name?");
+  document.getElementById('player').children[0].textContent = playerName;
+
+  var hiddenButtons = document.querySelectorAll('button.hide');
+  for (i=0; i < hiddenButtons.length; i++){
+    hiddenButtons[i].classList.remove('hide');
+  }
   event.target.classList.add('hide');
-  event.target.nextElementSibling.classList.remove('hide');
-  event.target.nextElementSibling.nextElementSibling.classList.remove('hide');
 
-  initialize(player);
-  initialize(computer);
+  initialize(player, "player");
+  initialize(dealer, "dealer");
 
-  printComputerCards();
-  printPlayerCards();
+  dealerCards("?");
+  printCards(player);
 
-  // console.log("P " + player.hand, player.score);
-  // console.log("C " + computer.hand, computer.score);
+  dealerScore();
+  updateScore(player);
 });
 
 hit.addEventListener('click',function(event){
   hitMe(player);
-  checkComputerHit();
-
-  // console.log("new P " + player.hand, player.score);
-  // console.log("new C " + computer.hand, computer.score);
+  checkDealerHit();
+  updateScore(player);
 });
 
 end.addEventListener('click', function(event){
-  //show scores;
+  showCards(dealer);
+  updateScore(player);
+  updateScore(dealer);
 });
 
-function printComputerCards(){
-  var cards = computer.hand;
-  for (var i=0; i < cards.length; i++){
-  // console.log(cards[i]);
+reset.addEventListener('click', function(event){
+  window.location.reload();
+})
 
-  var listItem = document.createElement('li');
-  listItem.classList.add("computer");
-  listItem.textContent = " ";
-  document.getElementById("computer").children[1].appendChild(listItem);
+function initialize(side, text) {
+  side.hand = getCard();
+  side.score = scoreHand(side.hand);
+  side.name = text;
+};
+
+function updateScore(side){
+  document.getElementById(side.name).children[2].classList.remove('hide');
+  document.getElementById(side.name).children[2].textContent = "Score = " + side.score;
+};
+
+function printCards(side){
+  var cards = side.hand;
+  for (var i=0; i < cards.length; i++){
+    makeCard(cards[i], side.name)
   }
 };
 
-function printPlayerCards(){
-  var cards = player.hand;
-  for (var i=0; i < cards.length; i++){
-  // console.log(cards[i]);
+function dealerCards(content){
+  makeCard(content, "dealer");
+  makeCard(content, "dealer");
+}
 
-  var listItem = document.createElement('li');
-  listItem.classList.add("player");
-  listItem.textContent = cards[i];
-  document.getElementById("player").children[1].appendChild(listItem);
-  }
+function dealerScore(){
+  document.getElementById('dealer').children[2].classList.remove('hide');
+  document.getElementById('dealer').children[2].textContent = "Score = ?";
+}
+
+function showCards(side){
+   var cards = side.hand;
+  for (var i=0; i < cards.length; i++){
+    document.getElementById(side.name).children[1].children[i].textContent = cards[i];
+  };
 };
 
-function initialize(side) {
-    side.hand = getCard();
-    side.score = scoreHand(side.hand);
-    side.name = side;
+function makeCard(value, classname){
+  var listItem = document.createElement('li');
+  listItem.classList.add(classname);
+  listItem.textContent = value;
+  document.getElementById(classname).children[1].appendChild(listItem);
 };
 
 function hitMe(side){
   var card = randomize(completeNum);
   var current = side.hand;
-  // console.log("current: " + side.hand);
-
   current.push(card);
   side.score = scoreHand(current);
 
-  // console.log("new hand: " + current);
-  // console.log("new score: " + side.score);
-}
-
-function checkComputerHit(){
-  if (computer.score >= 17) {
-    // console.log("NO HIT computerScore: " + computer.score);
+  if (side.name === "dealer"){
+    makeCard("?", "dealer");
   }
   else {
-    hitMe(computer);
+    makeCard(card, side.name);
+  }
+}
+
+function checkDealerHit(){
+  if (dealer.score >= 17) {
+    // console.log("NO HIT dealerScore: " + dealer.score);
+  }
+  else {
+    hitMe(dealer);
   }
 };
 
