@@ -24,10 +24,6 @@ var hit = document.getElementById('hit');
 var end = document.getElementById('end');
 var reset = document.getElementById('reset');
 
-var playerSection = document.getElementById('player');
-var dealerSection = document.getElementById('dealer');
-
-
 start.addEventListener('click',function(event){
   var playerName = prompt("What is your name?");
   document.getElementById('player').children[0].textContent = playerName;
