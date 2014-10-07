@@ -17,7 +17,7 @@ var completeNum = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
 var shapes = ["c","h","s","d"];
 
 var computer = {};
-  var player = {};
+var player = {};
 
 var start = document.getElementById('start');
 var hit = document.getElementById('hit');
@@ -31,14 +31,12 @@ start.addEventListener('click',function(event){
   initialize(player);
   initialize(computer);
 
+  printComputerCards();
+  printPlayerCards();
+
   // console.log("P " + player.hand, player.score);
   // console.log("C " + computer.hand, computer.score);
 });
-
-function initialize(side) {
-    side.hand = getCard();
-    side.score = scoreHand(side.hand);
-};
 
 hit.addEventListener('click',function(event){
   hitMe(player);
@@ -51,6 +49,36 @@ hit.addEventListener('click',function(event){
 end.addEventListener('click', function(event){
   //show scores;
 });
+
+function printComputerCards(){
+  var cards = computer.hand;
+  for (var i=0; i < cards.length; i++){
+  // console.log(cards[i]);
+
+  var listItem = document.createElement('li');
+  listItem.classList.add("computer");
+  listItem.textContent = " ";
+  document.getElementById("computer").children[1].appendChild(listItem);
+  }
+};
+
+function printPlayerCards(){
+  var cards = player.hand;
+  for (var i=0; i < cards.length; i++){
+  // console.log(cards[i]);
+
+  var listItem = document.createElement('li');
+  listItem.classList.add("player");
+  listItem.textContent = cards[i];
+  document.getElementById("player").children[1].appendChild(listItem);
+  }
+};
+
+function initialize(side) {
+    side.hand = getCard();
+    side.score = scoreHand(side.hand);
+    side.name = side;
+};
 
 function hitMe(side){
   var card = randomize(completeNum);
@@ -66,7 +94,7 @@ function hitMe(side){
 
 function checkComputerHit(){
   if (computer.score >= 17) {
-    console.log("NO HIT computerScore: " + computer.score);
+    // console.log("NO HIT computerScore: " + computer.score);
   }
   else {
     hitMe(computer);
