@@ -4,14 +4,16 @@ This function takes one parameter which is an array of strings that represent ea
 It returns a number which is the score of the hand. Return the highest score of the cards that is less than or equal to 21. If there is no score less than or euqal to 21 return the smallest score more than 21.
 Scoring rules: In Blackjack number cards count as their face value (2 through 10). Jack, Queen and King count as 10. An Ace can be counted as either 1 or 11.
 Examples:
-scoreHand(["A"]); //=> 11
-scoreHand(["A", "J"]); //=> 21
-scoreHand(["A", "10", "A"]); //=> 12
-scoreHand(["5", "3", "7"]); //=> 15
-scoreHand(["5", "4", "3", "2", "A", "K"]); //=> 25
-*/
 
-// clover, heart, spade, diamond
+Test data:
+scoreHand(["J","A"]); //=> 21
+scoreHand(["A"]); //=> 11
+scoreHand(["A","A"]); //=> 12
+scoreHand(["9","A","A"]); //=> 21
+scoreHand(["J","A","A"]); //=> 12
+scoreHand(["J","J","A"]); //=> 21
+scoreHand(["A","A","A"]); //=> 13
+*/
 
 var completeNum = ["2","3","4","5","6","7","8","9","10","J","Q","K","A"];
 var shapes = ["c","h","s","d"];
@@ -23,10 +25,25 @@ var start = document.getElementById('start');
 var hit = document.getElementById('hit');
 var end = document.getElementById('end');
 var reset = document.getElementById('reset');
+var tally = document.getElementById('tally');
 
-start.addEventListener('click',function(event){
+var playerCount = 0;
+var dealerCount = 0;
+
+window.onload = askName();
+
+function askName(){
   var playerName = prompt("What is your name?");
   document.getElementById('player').children[0].textContent = playerName;
+  tally.children[2].textContent = playerName + ": ";
+};
+
+start.addEventListener('click',function(event){
+
+  if ((playerCount > 0) || (dealerCount > 0)) {
+    removeCards(player);
+    removeCards(dealer);
+  }
 
   var hiddenButtons = document.querySelectorAll('button.hide');
   for (i=0; i < hiddenButtons.length; i++){
@@ -48,27 +65,28 @@ hit.addEventListener('click',function(event){
   hitMe(player);
   checkDealerHit();
   updateScore(player);
+  checkStatus();
 });
 
 end.addEventListener('click', function(event){
-  showCards(dealer);
-  updateScore(player);
-  updateScore(dealer);
+  endGame();
 });
 
 reset.addEventListener('click', function(event){
   window.location.reload();
-})
+});
+
+function removeCards(side){
+  var list = document.getElementById(side.name).children[1];
+  while (list.firstChild) {
+      list.removeChild(list.firstChild);
+  }
+}
 
 function initialize(side, text) {
   side.hand = getCard();
   side.score = scoreHand(side.hand);
   side.name = text;
-};
-
-function updateScore(side){
-  document.getElementById(side.name).children[2].classList.remove('hide');
-  document.getElementById(side.name).children[2].textContent = "Score = " + side.score;
 };
 
 function printCards(side){
@@ -86,6 +104,62 @@ function dealerCards(content){
 function dealerScore(){
   document.getElementById('dealer').children[2].classList.remove('hide');
   document.getElementById('dealer').children[2].textContent = "Score = ?";
+}
+
+function updateScore(side){
+  document.getElementById(side.name).children[2].classList.remove('hide');
+  document.getElementById(side.name).children[2].textContent = "Score = " + side.score;
+};
+
+function checkStatus(){
+  if (player.score == 21){
+    endGame();
+  }
+  else if (player.score > 21) {
+    endGame();
+  }
+  else{
+    return false
+  };
+}
+
+function setMessage(){
+  if (player.score == 21){
+    document.getElementById('message').textContent= "BLACKJACK";
+    playerCount += 1;
+    tally.children[3].textContent = playerCount;
+    console.log("BLACKJACK!");
+  }
+  else if (player.score > 21) {
+    document.getElementById('message').textContent= "Busted";
+    dealerCount += 1;
+    tally.children[1].textContent = dealerCount;
+    console.log ("You BUST!")
+  }
+  else if ((player.score > dealer.score) || (dealer.score > 21)){
+    document.getElementById('message').textContent= "Winner";
+    playerCount += 1;
+    tally.children[3].textContent = playerCount;
+    console.log("You Win!")
+  }
+  else {
+    document.getElementById('message').textContent= "Loser";
+    dealerCount += 1;
+    tally.children[1].textContent = dealerCount;
+    console.log("You Lost!")
+  }
+}
+
+function endGame(){
+  end.classList.add('hide');
+  hit.classList.add('hide');
+  start.classList.remove('hide');
+
+  showCards(dealer);
+  updateScore(player);
+  updateScore(dealer);
+
+  setMessage();
 }
 
 function showCards(side){
@@ -185,12 +259,3 @@ function scoreHand(cards){
   }
   return total;
 }
-
-//Test data:
-// scoreHand(["J","A"]); //=> 21
-// scoreHand(["A"]); //=> 11
-// scoreHand(["A","A"]); //=> 12
-// scoreHand(["9","A","A"]); //=> 21
-// scoreHand(["J","A","A"]); //=> 12
-// scoreHand(["J","J","A"]); //=> 21
-// scoreHand(["A","A","A"]); //=> 13
