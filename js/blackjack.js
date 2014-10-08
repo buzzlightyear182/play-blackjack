@@ -54,7 +54,6 @@ start.addEventListener('click',function(event){
   event.target.classList.add('hide');
 
   initialize(player, "player");
-  console.log(player.hand);
   initialize(dealer, "dealer");
 
   dealerCards("?");
@@ -82,7 +81,7 @@ reset.addEventListener('click', function(event){
 function removeCards(side){
   var list = document.getElementById(side.name).children[1];
   while (list.firstChild) {
-      list.removeChild(list.firstChild);
+    list.removeChild(list.firstChild);
   };
 };
 
