@@ -35,7 +35,7 @@ window.onload = askName();
 function askName(){
   var playerName = prompt("What is your name?");
   document.getElementById('player').children[0].textContent = playerName;
-  tally.children[2].textContent = playerName + ": ";
+  tally.children[1].children[0].textContent = playerName + ": ";
 };
 
 start.addEventListener('click',function(event){
@@ -43,6 +43,7 @@ start.addEventListener('click',function(event){
   if ((playerCount > 0) || (dealerCount > 0)) {
     removeCards(player);
     removeCards(dealer);
+    document.getElementById('message').textContent = "";
   }
 
   var hiddenButtons = document.querySelectorAll('button.hide');
@@ -127,25 +128,25 @@ function setMessage(){
   if (player.score == 21){
     document.getElementById('message').textContent= "BLACKJACK";
     playerCount += 1;
-    tally.children[3].textContent = playerCount;
+    tally.children[1].children[1].textContent = playerCount;
     console.log("BLACKJACK!");
   }
   else if (player.score > 21) {
     document.getElementById('message').textContent= "Busted";
     dealerCount += 1;
-    tally.children[1].textContent = dealerCount;
+    tally.children[0].children[1].textContent = dealerCount;
     console.log ("You BUST!")
   }
   else if ((player.score > dealer.score) || (dealer.score > 21)){
     document.getElementById('message').textContent= "Winner";
     playerCount += 1;
-    tally.children[3].textContent = playerCount;
+    tally.children[1].children[1].textContent = playerCount;
     console.log("You Win!")
   }
   else {
     document.getElementById('message').textContent= "Loser";
     dealerCount += 1;
-    tally.children[1].textContent = dealerCount;
+    tally.children[0].children[1].textContent = dealerCount;
     console.log("You Lost!")
   }
 }

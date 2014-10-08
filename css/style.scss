@@ -86,6 +86,14 @@ li {
   @include border-radius(10px);
 }
 
-#dealer li:after {
-  display: hidden;
+// #dealer li:after {
+//   display: hidden;
+// }
+
+#tally {
+  display: inline;
+}
+
+#tally h3, #tally p {
+  display: inline;
 }

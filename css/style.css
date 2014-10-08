@@ -73,7 +73,10 @@ li {
   -ms-border-radius: 10px;
   border-radius: 10px; }
 
-#dealer li:after {
-  display: hidden; }
+#tally {
+  display: inline; }
+
+#tally h3, #tally p {
+  display: inline; }
 
 /*# sourceMappingURL=style.css.map */
