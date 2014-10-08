@@ -26,6 +26,7 @@ var hit = document.getElementById('hit');
 var end = document.getElementById('end');
 var reset = document.getElementById('reset');
 var tally = document.getElementById('tally');
+var message = document.getElementById('message');
 
 var playerCount = 0;
 var dealerCount = 0;
@@ -43,7 +44,7 @@ start.addEventListener('click',function(event){
   if ((playerCount > 0) || (dealerCount > 0)) {
     removeCards(player);
     removeCards(dealer);
-    document.getElementById('message').textContent = "";
+    message.textContent = "";
   }
 
   var hiddenButtons = document.querySelectorAll('button.hide');
@@ -53,6 +54,7 @@ start.addEventListener('click',function(event){
   event.target.classList.add('hide');
 
   initialize(player, "player");
+  console.log(player.hand);
   initialize(dealer, "dealer");
 
   dealerCards("?");
@@ -81,8 +83,8 @@ function removeCards(side){
   var list = document.getElementById(side.name).children[1];
   while (list.firstChild) {
       list.removeChild(list.firstChild);
-  }
-}
+  };
+};
 
 function initialize(side, text) {
   side.hand = getCard();
@@ -92,9 +94,10 @@ function initialize(side, text) {
 
 function printCards(side){
   var cards = side.hand;
+  console.log(side.name + " " + cards.length);
   for (var i=0; i < cards.length; i++){
     makeCard(cards[i], side.name)
-  }
+  };
 };
 
 function dealerCards(content){
@@ -126,28 +129,28 @@ function checkStatus(){
 
 function setMessage(){
   if (player.score == 21){
-    document.getElementById('message').textContent= "BLACKJACK";
+    message.textContent= "BLACKJACK";
     playerCount += 1;
     tally.children[1].children[1].textContent = playerCount;
-    console.log("BLACKJACK!");
+    // console.log("BLACKJACK!");
   }
   else if (player.score > 21) {
-    document.getElementById('message').textContent= "Busted";
+    message.textContent= "Busted";
     dealerCount += 1;
     tally.children[0].children[1].textContent = dealerCount;
-    console.log ("You BUST!")
+    // console.log ("You BUST!");
   }
   else if ((player.score > dealer.score) || (dealer.score > 21)){
-    document.getElementById('message').textContent= "Winner";
+    message.textContent= "Winner";
     playerCount += 1;
     tally.children[1].children[1].textContent = playerCount;
-    console.log("You Win!")
+    // console.log("You Win!");
   }
   else {
-    document.getElementById('message').textContent= "Loser";
+    message.textContent= "Loser";
     dealerCount += 1;
     tally.children[0].children[1].textContent = dealerCount;
-    console.log("You Lost!")
+    // console.log("You Lost!");
   }
 }
 
@@ -202,11 +205,9 @@ function checkDealerHit(){
 
 function getCard(){
   hand = [];
-  i = 0;
-  while (i < 2) {
+  while (hand.length < 2) {
     var card = randomize(completeNum);
     hand.push(card);
-    i+=1;
   }
   return hand
 };
