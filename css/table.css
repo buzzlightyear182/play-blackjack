@@ -1,0 +1,60 @@
+footer {
+  display: none; }
+
+.long {
+  width: 90%;
+  height: 300px;
+  position: fixed;
+  bottom: 0px;
+  margin: auto;
+  perspective: 600px; }
+
+.middle {
+  background-color: #0b2f1c;
+  border: 15px solid black;
+  border-top: none;
+  border-bottom: none;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  border-radius: 10px;
+  width: 60%;
+  height: 205.5px;
+  z-index: 1;
+  position: relative;
+  bottom: -120px;
+  margin: auto;
+  transform: rotateX(55deg); }
+
+.top {
+  background-color: #0b2f1c;
+  border: 15px solid black;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  border-radius: 20px;
+  width: 80%;
+  height: 304px;
+  z-index: -2;
+  position: relative;
+  bottom: 300px;
+  margin: auto;
+  transform: rotateX(55deg); }
+
+.side {
+  width: 25%;
+  height: 140px;
+  bottom: -160px;
+  background-color: #341c0c;
+  z-index: -3;
+  border: 5px solid black; }
+
+.left {
+  position: relative;
+  float: left; }
+
+.right {
+  position: relative;
+  float: right; }
+
+/*# sourceMappingURL=table.css.map */
