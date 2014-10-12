@@ -17,17 +17,17 @@ h1, h2, button {
   text-align: center;
 }
 
-button {
-  background-color: $red;
-  border: 0px;
-  padding: 20px 50px;
-  font-size: 2em;
-  @include border-radius(10px);
-}
+// button {
+//   background-color: $red;
+//   border: 0px;
+//   padding: 20px 50px;
+//   font-size: 2em;
+//   @include border-radius(10px);
+// }
 
-button:hover{
-  background-color: darken($red, 10%);
-}
+// button:hover{
+//   background-color: darken($red, 10%);
+// }
 
 header {
   margin: 10px 0;
@@ -54,16 +54,13 @@ footer {
   text-align: center;
 }
 
-section {
-  width: 45%;
-  border: 1px solid black;
+#player {
+  width: 100%;
   display: inline-block;
-  border: 5px solid yellow;
   @include border-radius(100px);
-}
-
-.hide {
-  display: none;
+  margin: auto;
+  position: relative;
+  text-align: center;
 }
 
 ul {
@@ -71,7 +68,27 @@ ul {
   padding: 0px;
 }
 
-li {
+#dealer .cards li {
+  list-style: none;
+  display: inline-block;
+  margin: 5px;
+  background-color: white;
+  width: 5%;
+  height: auto;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.5em;
+  padding: 10px 0;
+  @include border-radius(5px);
+  transform: rotate(0.5turn)
+}
+
+section h2 {
+  font-size: 2em;
+}
+
+#player .cards li {
   list-style: none;
   display: inline-block;
   margin: 5px;
@@ -82,13 +99,9 @@ li {
   text-align: center;
   vertical-align: middle;
   font-size: 3em;
-  padding: 30px 0;
+  padding: 40px 0;
   @include border-radius(10px);
 }
-
-// #dealer li:after {
-//   display: hidden;
-// }
 
 #tally {
   display: inline;

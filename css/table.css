@@ -1,10 +1,13 @@
 footer {
   display: none; }
 
+.content {
+  margin: auto; }
+
 .long {
   width: 90%;
   height: 300px;
-  position: fixed;
+  position: absolute;
   bottom: 0px;
   margin: auto;
   perspective: 600px; }
@@ -34,10 +37,10 @@ footer {
   -ms-border-radius: 20px;
   border-radius: 20px;
   width: 80%;
-  height: 304px;
+  height: 450px;
   z-index: -2;
   position: relative;
-  bottom: 300px;
+  bottom: 416px;
   margin: auto;
   transform: rotateX(55deg); }
 
@@ -56,5 +59,45 @@ footer {
 .right {
   position: relative;
   float: right; }
+
+.buttons {
+  margin: 0 auto;
+  position: relative;
+  padding-top: 60px;
+  width: 100%; }
+
+.push_button {
+  position: relative;
+  color: #FFF;
+  display: inline-block;
+  text-decoration: none;
+  margin: 0 10px;
+  border-radius: 10px;
+  border: solid 1px #D94E3B;
+  background: #cb3b27;
+  text-align: center;
+  padding: 20px 20px;
+  font-size: 1.5em;
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+  -webkit-box-shadow: 0px 10px 0px #84261a;
+  -moz-box-shadow: 0px 10px 0px #84261a;
+  box-shadow: 0px 10px 0px #84261a; }
+  @media only screen and (max-width: 560px) {
+    .push_button {
+      font-size: 150%;
+      padding: 20px 20px;
+      width: 50%; } }
+
+.push_button:active {
+  -webkit-box-shadow: 0px 2px 0px #84261a;
+  -moz-box-shadow: 0px 2px 0px #84261a;
+  box-shadow: 0px 2px 0px #84261a;
+  position: relative;
+  top: 10px; }
+
+.hide {
+  display: none; }
 
 /*# sourceMappingURL=table.css.map */

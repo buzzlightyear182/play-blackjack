@@ -13,18 +13,18 @@
       <h1>Let's Play Blackjack</h1>
     </header>
     <div class="main">
-      <section id='dealer'>
+      <!-- <section id='dealer'>
         <h2>Dealer</h2>
         <ul>
         </ul>
         <p class='score hide'>Total</p>
-      </section>
-      <section id='player'>
+      </section> -->
+      <!-- <section id='player'>
         <h2>Player</h2>
         <ul>
         </ul>
         <p class='score hide'>Total</p>
-      </section>
+      </section> -->
       <div>
         <div id="tally">
           <div>
@@ -41,19 +41,51 @@
       </div>
     </div>
     <div id="table">
-    <div class='long'>
-        <div class='side left'></div>
-        <div class='side right'></div>
-        <div class='middle'></div>
-        <div class='top'></div>
+      <!-- <div class="content">
+        <section id='dealer'>
+          <h2>Dealer</h2>
+          <ul class="cards">
+          </ul>
+          <p class='score hide'>Total</p>
+        </section>
+        <section id='player'>
+          <h2>Player</h2>
+          <ul class="cards">
+          </ul>
+          <p class='score hide'>Total</p>
+        </section>
+      </div> -->
+      <div class='long'>
+          <div class='side left'></div>
+          <div class='side right'></div>
+          <div class='middle'>
+            <div class="buttons">
+              <a id="start" class="push_button">Start</a>
+              <a id="hit" class="push_button hide">Hit</a>
+              <a id="end" class="push_button hide">Stand</a>
+              <a id="reset" class="push_button hide">Reset</a>
+            </div>
+          </div>
+          <div class='top'>
+            <div class="content">
+          <section id='dealer'>
+            <h2>Dealer</h2>
+            <ul class="cards">
+            </ul>
+            <p class='score hide'>Total</p>
+          </section>
+          <section id='player'>
+            <h2>Player</h2>
+            <ul class="cards">
+            </ul>
+            <p class='score hide'>Total</p>
+          </section>
+        </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
     <footer>
-      <button id="start">Start</button>
-      <button id="hit" class="hide">Hit</button>
-      <button id="end" class="hide">Stand</button>
-      <button id="reset" class="hide">Reset</button>
     </footer>
   </div>
   <script src="js/blackjack.js"></script>
