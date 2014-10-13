@@ -4,6 +4,7 @@
   <title>BlackJack!</title>
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/table.css">
 </head>
 
 <body>
@@ -11,40 +12,66 @@
     <header>
       <h1>Let's Play Blackjack</h1>
     </header>
-  <div class="main">
-    <section id='dealer'>
-      <h2>Dealer</h2>
-      <ul>
-      </ul>
-      <p class='score hide'>Total</p>
-    </section>
-    <section id='player'>
-      <h2>Player</h2>
-      <ul>
-      </ul>
-      <p class='score hide'>Total</p>
-    </section>
-    <div>
-      <div id="tally">
-        <div>
-          <h3>Dealer: </h3>
-          <p>0</p>
+    <div class="main">
+      <!-- <section id='dealer'>
+        <h2>Dealer</h2>
+        <ul>
+        </ul>
+        <p class='score hide'>Total</p>
+      </section> -->
+      <!-- <section id='player'>
+        <h2>Player</h2>
+        <ul>
+        </ul>
+        <p class='score hide'>Total</p>
+      </section> -->
+      <div>
+        <div id="tally">
+          <div>
+            <h3>Dealer: </h3>
+            <p>0</p>
+          </div>
+          <div>
+            <h3>Player: </h3>
+            <p>0</p>
+          </div>
         </div>
-        <div>
-          <h3>Player: </h3>
-          <p>0</p>
+        <p id='message'>
+        </p>
+      </div>
+    </div>
+    <div id="table">
+      <div class='long'>
+          <div class='side left'></div>
+          <div class='side right'></div>
+          <div class='middle'>
+            <div class="buttons">
+              <a id="start" class="push_button">Start</a>
+              <a id="hit" class="push_button hide">Hit</a>
+              <a id="end" class="push_button hide">Stand</a>
+              <a id="reset" class="push_button hide">Reset</a>
+            </div>
+          </div>
+          <div class='top'>
+            <div class="content">
+          <section id='dealer'>
+            <h2>Dealer</h2>
+            <ul class="cards">
+            </ul>
+            <p class='score hide'>Total</p>
+          </section>
+          <section id='player'>
+            <h2>Player</h2>
+            <ul class="cards">
+            </ul>
+            <p class='score hide'>Total</p>
+          </section>
+        </div>
+          </div>
         </div>
       </div>
-      <p id='message'>
-      </p>
     </div>
-  </div>
-  </div>
     <footer>
-      <button id="start">Start</button>
-      <button id="hit" class="hide">Hit</button>
-      <button id="end" class="hide">Stand</button>
-      <button id="reset" class="hide">Reset</button>
     </footer>
   </div>
   <script src="js/blackjack.js"></script>
