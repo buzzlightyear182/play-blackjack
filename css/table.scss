@@ -1,0 +1,139 @@
+$green: #1E824C;
+$brick: #351C0C;
+
+@mixin box-shadow($top, $left, $blur, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow:inset $top $left $blur $color;
+    -moz-box-shadow:inset $top $left $blur $color;
+    box-shadow:inset $top $left $blur $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $color;
+    -moz-box-shadow: $top $left $blur $color;
+    box-shadow: $top $left $blur $color;
+  }
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}
+
+footer {
+  display: none;
+}
+
+.content {
+  margin: auto;
+}
+
+.long {
+  width: 90%;
+  height: 300px;
+  position: absolute;
+  bottom: 0px;
+  margin: auto;
+  perspective: 600px;
+}
+
+.middle {
+  background-color: darken($green, 20%);
+  border: 15px solid black;
+  border-top: none;
+  border-bottom: none;
+  @include border-radius(10px);
+  width: 60%;
+  height: 212.5px;
+  z-index: 1;
+  position: relative;
+  bottom: -120px;
+  margin: auto;
+  transform: rotateX(55deg);
+}
+
+.top {
+  background-color: darken($green, 20%);
+  border: 15px solid black;
+  @include border-radius(20px);
+  width: 80%;
+  height: 450px;
+  z-index: -2;
+  position: relative;
+  bottom: 422px;
+  margin: auto;
+  transform: rotateX(55deg);
+}
+
+.side {
+  width: 25%;
+  height: 140px;
+  bottom: -160px;
+  background-color: darken($brick, 0.2);
+  z-index: -3;
+  border: 5px solid black;
+}
+
+.left {
+  position: relative;
+  float: left;
+}
+
+.right {
+  position: relative;
+  float: right;
+}
+
+.buttons {
+  margin: 0 auto;
+  position: relative;
+  padding-top: 60px;
+  width: 100%;
+}
+
+.push_button{
+  position:relative;
+  // width: 15%;
+  color:#FFF;
+  display: inline-block;
+  text-decoration:none;
+  margin:0 10px;
+  border-radius:10px;
+  border:solid 1px #D94E3B;
+  background:#cb3b27;
+  text-align:center;
+  padding:20px 20px;
+  font-size: 1.5em;
+
+   @media only screen and (max-width: 560px) {
+      font-size: 150%;
+      padding: 20px 20px;
+      width: 50%;
+    }
+
+  -webkit-transition: all 0.1s;
+  -moz-transition: all 0.1s;
+  transition: all 0.1s;
+
+  -webkit-box-shadow: 0px 10px 0px #84261a;
+  -moz-box-shadow: 0px 10px 0px #84261a;
+  box-shadow: 0px 10px 0px #84261a;
+}
+
+.push_button:active{
+    -webkit-box-shadow: 0px 2px 0px #84261a;
+    -moz-box-shadow: 0px 2px 0px #84261a;
+    box-shadow: 0px 2px 0px #84261a;
+    position:relative;
+    top: 10px;
+}
+
+.score {
+  margin: auto;
+  display: inline-block;
+  text-align: center;
+}
+
+.hide {
+  display: none;
+}

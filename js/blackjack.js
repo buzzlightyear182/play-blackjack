@@ -45,9 +45,10 @@ start.addEventListener('click',function(event){
     removeCards(player);
     removeCards(dealer);
     message.textContent = "";
+    document.getElementById('dealer').children[2].classList.add('hide');
   }
 
-  var hiddenButtons = document.querySelectorAll('button.hide');
+  var hiddenButtons = document.querySelectorAll('a.hide');
   for (i=0; i < hiddenButtons.length; i++){
     hiddenButtons[i].classList.remove('hide');
   }
@@ -59,7 +60,7 @@ start.addEventListener('click',function(event){
   dealerCards("?");
   printCards(player);
 
-  dealerScore();
+  // dealerScore();
   updateScore(player);
 });
 
@@ -93,7 +94,6 @@ function initialize(side, text) {
 
 function printCards(side){
   var cards = side.hand;
-  console.log(side.name + " " + cards.length);
   for (var i=0; i < cards.length; i++){
     makeCard(cards[i], side.name)
   };

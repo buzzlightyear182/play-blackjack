@@ -5,19 +5,6 @@ body {
 h1, h2, button {
   text-align: center; }
 
-button {
-  background-color: #D91E18;
-  border: 0px;
-  padding: 20px 50px;
-  font-size: 2em;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  border-radius: 10px; }
-
-button:hover {
-  background-color: #ab1813; }
-
 header {
   margin: 10px 0; }
 
@@ -39,24 +26,46 @@ footer {
   margin: auto;
   text-align: center; }
 
-section {
-  width: 45%;
-  border: 1px solid black;
+#dealer {
+  text-align: center; }
+
+#player {
+  width: 100%;
   display: inline-block;
-  border: 5px solid yellow;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   -ms-border-radius: 100px;
-  border-radius: 100px; }
-
-.hide {
-  display: none; }
+  border-radius: 100px;
+  margin: auto;
+  position: relative;
+  text-align: center; }
 
 ul {
   text-align: center;
   padding: 0px; }
 
-li {
+#dealer .cards li {
+  list-style: none;
+  display: inline-block;
+  margin: 5px;
+  background-color: white;
+  width: 5%;
+  height: auto;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 1.5em;
+  padding: 10px 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  border-radius: 5px;
+  transform: rotate(0.5turn); }
+
+section h2 {
+  font-size: 2em; }
+
+#player .cards li {
   list-style: none;
   display: inline-block;
   margin: 5px;
@@ -67,7 +76,7 @@ li {
   text-align: center;
   vertical-align: middle;
   font-size: 3em;
-  padding: 30px 0;
+  padding: 40px 0;
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
