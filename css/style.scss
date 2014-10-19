@@ -9,8 +9,9 @@ $red: #D91E18;
 }
 
 body {
-  background-color: $green;
+  background-image: url(../images/bg_redblk.jpg);
   color: white;
+  font-family: 'Lobster', cursive;
 }
 
 h1, h2, button {
@@ -31,6 +32,16 @@ h1, h2, button {
 
 header {
   margin: 10px 0;
+}
+
+header h1, #message {
+  font-size: 5em;
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+    @media only screen and (max-width: 680px) {
+      font-size: 3.8em;
+    }
 }
 
 footer {
@@ -54,8 +65,27 @@ footer {
   text-align: center;
 }
 
+.sans-serif {
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+}
+
 #dealer {
   text-align: center;
+  position: absolute;
+  margin-left: 10px;
+
+     @media only screen and (max-width: 600px) {
+      width: 20%;
+      display: inline-block;
+
+      h2 {
+        font-size: 1.2em;
+      }
+    }
+
+    @media only screen and (max-width: 320px) {
+      display: none;
+    }
 }
 
 #player {
@@ -65,6 +95,11 @@ footer {
   margin: auto;
   position: relative;
   text-align: center;
+
+  h2 {
+    font-size: 3em;
+    text-transform: uppercase;
+  }
 }
 
 ul {
@@ -77,15 +112,18 @@ ul {
   display: inline-block;
   margin: 5px;
   background-color: white;
-  width: 5%;
+  width: 45px;
   height: auto;
   color: black;
   text-align: center;
   vertical-align: middle;
   font-size: 1.5em;
-  padding: 10px 0;
+  padding: 25px 0;
   @include border-radius(5px);
-  transform: rotate(0.5turn)
+  @media only screen and (max-width: 500px) {
+    width: 30px;
+    padding: 10px 0;
+  }
 }
 
 section h2 {
@@ -97,7 +135,7 @@ section h2 {
   display: inline-block;
   margin: 5px;
   background-color: white;
-  width: 15%;
+  width: 80px;
   height: auto;
   color: black;
   text-align: center;
@@ -105,6 +143,10 @@ section h2 {
   font-size: 3em;
   padding: 40px 0;
   @include border-radius(10px);
+  @media only screen and (max-width: 450px) {
+    width: 60px;
+    padding: 25px 0;
+  }
 }
 
 #tally {
@@ -113,4 +155,10 @@ section h2 {
 
 #tally h3, #tally p {
   display: inline;
+}
+
+#message {
+  margin: 0px auto;
+  text-align: center;
+  z-index: 10;
 }
