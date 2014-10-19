@@ -1,5 +1,5 @@
 $green: #1E824C;
-$brick: #351C0C;
+$brick: #1E0F05;
 
 @mixin box-shadow($top, $left, $blur, $color, $inset: false) {
   @if $inset {
@@ -57,10 +57,10 @@ footer {
   border: 15px solid black;
   @include border-radius(20px);
   width: 80%;
-  height: 450px;
+  height: 340px;
   z-index: -2;
   position: relative;
-  bottom: 422px;
+  bottom: 335px;
   margin: auto;
   transform: rotateX(55deg);
 }
@@ -69,7 +69,7 @@ footer {
   width: 25%;
   height: 140px;
   bottom: -160px;
-  background-color: darken($brick, 0.2);
+  background-color: darken($brick, 0.5);
   z-index: -3;
   border: 5px solid black;
 }
@@ -89,6 +89,16 @@ footer {
   position: relative;
   padding-top: 60px;
   width: 100%;
+  text-align: center;
+  @media only screen and (max-width: 450px) {
+    padding-top: 0px;
+    position: relative;
+    bottom: 180px;
+    margin: auto;
+    .hide {
+      display: none;
+    }
+  }
 }
 
 .push_button{

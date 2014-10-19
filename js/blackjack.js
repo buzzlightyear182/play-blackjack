@@ -31,22 +31,19 @@ var message = document.getElementById('message');
 var playerCount = 0;
 var dealerCount = 0;
 
-window.onload = askName();
-
-function askName(){
-  var playerName = prompt("What is your name?");
-  document.getElementById('player').children[0].textContent = playerName;
-  tally.children[1].children[0].textContent = playerName + ": ";
-};
-
 start.addEventListener('click',function(event){
 
   if ((playerCount > 0) || (dealerCount > 0)) {
     removeCards(player);
     removeCards(dealer);
+    message.classList.remove('animated');
+    message.classList.remove('flash');
     message.textContent = "";
     document.getElementById('dealer').children[2].classList.add('hide');
   }
+  else {
+    askName();
+  };
 
   var hiddenButtons = document.querySelectorAll('a.hide');
   for (i=0; i < hiddenButtons.length; i++){
@@ -78,6 +75,12 @@ end.addEventListener('click', function(event){
 reset.addEventListener('click', function(event){
   window.location.reload();
 });
+
+function askName(){
+  var playerName = prompt("What is your name?");
+  document.getElementById('player').children[0].textContent = playerName;
+  tally.children[1].children[0].textContent = playerName + ": ";
+};
 
 function removeCards(side){
   var list = document.getElementById(side.name).children[1];
@@ -127,26 +130,28 @@ function checkStatus(){
 }
 
 function setMessage(){
+  message.classList.add('animated');
+  message.classList.add('flash');
   if (player.score == 21){
-    message.textContent= "BLACKJACK";
+    message.textContent= "BLACKJACK!";
     playerCount += 1;
     tally.children[1].children[1].textContent = playerCount;
     // console.log("BLACKJACK!");
   }
   else if (player.score > 21) {
-    message.textContent= "Busted";
+    message.textContent= "Busted!";
     dealerCount += 1;
     tally.children[0].children[1].textContent = dealerCount;
     // console.log ("You BUST!");
   }
   else if ((player.score > dealer.score) || (dealer.score > 21)){
-    message.textContent= "Winner";
+    message.textContent= "Winner!";
     playerCount += 1;
     tally.children[1].children[1].textContent = playerCount;
     // console.log("You Win!");
   }
   else {
-    message.textContent= "Loser";
+    message.textContent= "Loser!";
     dealerCount += 1;
     tally.children[0].children[1].textContent = dealerCount;
     // console.log("You Lost!");
@@ -175,6 +180,8 @@ function showCards(side){
 function makeCard(value, classname){
   var listItem = document.createElement('li');
   listItem.classList.add(classname);
+  listItem.classList.add('animated');
+  listItem.classList.add('rollIn');
   listItem.textContent = value;
   document.getElementById(classname).children[1].appendChild(listItem);
 };

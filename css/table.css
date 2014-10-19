@@ -37,10 +37,10 @@ footer {
   -ms-border-radius: 20px;
   border-radius: 20px;
   width: 80%;
-  height: 450px;
+  height: 340px;
   z-index: -2;
   position: relative;
-  bottom: 422px;
+  bottom: 335px;
   margin: auto;
   transform: rotateX(55deg); }
 
@@ -48,7 +48,7 @@ footer {
   width: 25%;
   height: 140px;
   bottom: -160px;
-  background-color: #341c0c;
+  background-color: #1c0e05;
   z-index: -3;
   border: 5px solid black; }
 
@@ -64,7 +64,16 @@ footer {
   margin: 0 auto;
   position: relative;
   padding-top: 60px;
-  width: 100%; }
+  width: 100%;
+  text-align: center; }
+  @media only screen and (max-width: 450px) {
+    .buttons {
+      padding-top: 0px;
+      position: relative;
+      bottom: 180px;
+      margin: auto; }
+      .buttons .hide {
+        display: none; } }
 
 .push_button {
   position: relative;

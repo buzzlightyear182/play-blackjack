@@ -1,39 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BlackJack!</title>
+  <title>Play BlackJack</title>
   <link rel="stylesheet" type="text/css" href="css/normalize.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="css/table.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css">
+
+  <link href='http://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
   <div class="container">
-    <header>
-      <h1>Let's Play Blackjack</h1>
+    <header class="animated zoomIn">
+      <h1>Let's Play Blackjack!</h1>
     </header>
     <div class="main">
-      <!-- <section id='dealer'>
-        <h2>Dealer</h2>
-        <ul>
-        </ul>
-        <p class='score hide'>Total</p>
-      </section> -->
-      <!-- <section id='player'>
-        <h2>Player</h2>
-        <ul>
-        </ul>
-        <p class='score hide'>Total</p>
-      </section> -->
       <div>
-        <div id="tally">
+        <div id="tally" class="sans-serif">
           <div>
             <h3>Dealer: </h3>
-            <p>0</p>
+            <p class='sans-serif'>0</p>
           </div>
           <div>
             <h3>Player: </h3>
-            <p>0</p>
+            <p class='sans-serif'>0</p>
           </div>
         </div>
         <p id='message'>
@@ -53,20 +45,20 @@
             </div>
           </div>
           <div class='top'>
-            <div class="content">
-          <section id='dealer'>
-            <h2>Dealer</h2>
-            <ul class="cards">
-            </ul>
-            <p class='score hide'>Total</p>
-          </section>
-          <section id='player'>
-            <h2>Player</h2>
-            <ul class="cards">
-            </ul>
-            <p class='score hide'>Total</p>
-          </section>
-        </div>
+            <div class="content sans-serif">
+              <section id='dealer'>
+                <h2>DEALER</h2>
+                <ul class="cards">
+                </ul>
+                <p class='score hide'>Total</p>
+              </section>
+              <section id='player'>
+                <h2>PLAYER</h2>
+                <ul class="cards sans-serif">
+                </ul>
+                <p class='score hide'>Total</p>
+              </section>
+            </div>
           </div>
         </div>
       </div>
