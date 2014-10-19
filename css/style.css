@@ -1,5 +1,6 @@
 body {
-  background-image: url(../images/bg_redblk.jpg);
+  background-image: url(../images/bg.png);
+  background-repeat: repeat;
   color: white;
   font-family: 'Lobster', cursive; }
 
