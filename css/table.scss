@@ -20,6 +20,13 @@ $brick: #1E0F05;
           border-radius: $radius;
 }
 
+@mixin perspective($val) {
+  -webkit-perspective: $val;
+  -moz-perspective: $val;
+  -ms-perspective: $val;
+  perspective: $val;
+}
+
 footer {
   display: none;
 }
@@ -34,7 +41,7 @@ footer {
   position: absolute;
   bottom: 0px;
   margin: auto;
-  perspective: 600px;
+  @include perspective(600px);
 }
 
 .middle {
@@ -103,7 +110,6 @@ footer {
 
 .push_button{
   position:relative;
-  // width: 15%;
   color:#FFF;
   display: inline-block;
   text-decoration:none;
