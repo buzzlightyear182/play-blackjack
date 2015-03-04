@@ -3,7 +3,9 @@ Play-blackjack
 
 Since I made a blackjack-scorer, I thought might as well continue to fully develop a game to play blackjack.
 
-Playable DEMO: http://buzzlightyear182.github.io/play-blackjack/
+[Playable DEMO here](http://buzzlightyear182.github.io/play-blackjack/)
+
+[![screenshot](https://github.com/buzzlightyear182/play-blackjack/blob/master/screenshot.png)](http://buzzlightyear182.github.io/play-blackjack/)
 
 Whoever scores higher will be the winner. Score a 21 = Blackjack!
 

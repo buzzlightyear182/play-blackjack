@@ -56,9 +56,6 @@ footer {
 #player {
   width: 100%;
   display: inline-block;
-  -webkit-border-radius: 100px;
-  -moz-border-radius: 100px;
-  -ms-border-radius: 100px;
   border-radius: 100px;
   margin: auto;
   position: relative;
@@ -83,9 +80,6 @@ ul {
   vertical-align: middle;
   font-size: 1.5em;
   padding: 25px 0;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
   border-radius: 5px; }
   @media only screen and (max-width: 500px) {
     #dealer .cards li {
@@ -107,9 +101,6 @@ section h2 {
   vertical-align: middle;
   font-size: 3em;
   padding: 40px 0;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
   border-radius: 10px; }
   @media only screen and (max-width: 450px) {
     #player .cards li {
@@ -126,5 +117,3 @@ section h2 {
   margin: 0px auto;
   text-align: center;
   z-index: 10; }
-
-/*# sourceMappingURL=style.css.map */
